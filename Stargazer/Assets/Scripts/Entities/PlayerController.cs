@@ -7,17 +7,22 @@ public class PlayerController : Entity {
 	private Collider playerCollider;
 	private Rigidbody playerBody;
 
+	private float scopedFOV = 30f;
+	private float normalFOV = 95f;
 	private float jumpHeight = 2.0f;
 	private float yRotation = 0.0f;
+	private bool isScoped = false;
 
 	private EquipAction equipAction;
 	private Inventory inventory;
 	public GameObject weaponPrefab;
+	public TimeManager timeManager;
 
 	void Start() {
 		playerView.enabled = true;
 		playerView.transform.position = transform.position + Vector3.up * .5f;
 		playerView.transform.eulerAngles = this.direction = transform.eulerAngles;
+		playerView.fieldOfView = 95f;
 
 		playerBody = GetComponent<Rigidbody>();
 		playerCollider = GetComponent<Collider>();
@@ -39,6 +44,8 @@ public class PlayerController : Entity {
 		this.RotatePerspective();
 		this.InteractionControl();
 		this.InventoryControl();
+		this.Scope();
+		this.SlowMo();
 	}
 
 	void FixedUpdate() {
@@ -137,5 +144,28 @@ public class PlayerController : Entity {
 		playerView.transform.parent = null;
 		print("YOU DIED!");
 		Destroy(this.gameObject);
+	}
+
+	void Scope()
+	{
+		if (Input.GetMouseButtonDown(1))
+		{
+			isScoped = !isScoped;
+
+			if (isScoped)
+			{
+				playerView.fieldOfView = scopedFOV;
+			}
+			else
+			{
+				playerView.fieldOfView = normalFOV;
+			}
+		}
+	}
+
+	void SlowMo() {
+		if (Input.GetMouseButtonDown(2)) {
+			timeManager.DoSlowmotion();
+		}
 	}
 }
