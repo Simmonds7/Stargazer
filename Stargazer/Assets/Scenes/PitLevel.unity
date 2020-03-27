@@ -394,7 +394,7 @@ Prefab:
         type: 2}
       propertyPath: timeManager
       value: 
-      objectReference: {fileID: 245576602}
+      objectReference: {fileID: 357632215}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 696c50bce5b8d494a9b9c3162fffbfe7, type: 2}
   m_IsPrefabParent: 0
@@ -557,48 +557,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4324615894758382, guid: 6f63e6f5147f0eb47bc2bbbbb6dbb3d5,
     type: 2}
   m_PrefabInternal: {fileID: 206809101}
---- !u!1 &245576601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 245576603}
-  - component: {fileID: 245576602}
-  m_Layer: 0
-  m_Name: TimeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &245576602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 245576601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b7aa1ce1c5a634780987ef0a7b50da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowdownFactor: 0.05
-  slowdownLength: 2
---- !u!4 &245576603
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 245576601}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &291561743
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +622,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &357632209 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1410798628367396, guid: 696c50bce5b8d494a9b9c3162fffbfe7,
+    type: 2}
+  m_PrefabInternal: {fileID: 91243175}
+--- !u!114 &357632215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 357632209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b7aa1ce1c5a634780987ef0a7b50da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowdownFactor: 0.2
+  slowdownLength: 3
 --- !u!1 &379407672
 GameObject:
   m_ObjectHideFlags: 0
