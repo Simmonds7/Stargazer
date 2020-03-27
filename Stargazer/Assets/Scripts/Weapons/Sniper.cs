@@ -6,7 +6,7 @@ public class Sniper : Equipment {
     public GameObject bulletPrefab;
     private float currentReloadTime = 0;
     private const float MAX_RELOAD_TIME = 1.25f;
-    private const float BULLET_SPEED = 25.0f;
+    private const float BULLET_SPEED = 120.0f;
     private const float BULLET_RANGE = 200.0f;
 
     void Start() {
@@ -25,7 +25,7 @@ public class Sniper : Equipment {
                 GameObject bulletClone = Instantiate(bulletPrefab, position, this.transform.rotation) as GameObject;
                 Bullet bullet = bulletClone.GetComponent<Bullet>();
                 bullet.Init(bulletDirection, BULLET_SPEED, BULLET_RANGE);
-                bullet.damageValue = 15;
+                bullet.damageValue = 25;
 
                 this.currentReloadTime = MAX_RELOAD_TIME;
                 if (ownerEntity.transform.tag != "Entity")
@@ -35,7 +35,6 @@ public class Sniper : Equipment {
             }
         }
     }
-
 
     void Update() {
         if (!(this.currentReloadTime <= 0)) {
