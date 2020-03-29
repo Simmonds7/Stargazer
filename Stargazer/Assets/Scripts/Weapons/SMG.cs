@@ -17,12 +17,12 @@ public class SMG : Equipment {
 
     public override void OnActivate() {
         if (this.currentAmmoCount > 0) {
-            int RND = Random.Range(-1, 1);
-            int RND2 = Random.Range(-2, 2);
+            int rnd = Random.Range(-1, 1);
+            int rnd2 = Random.Range(-2, 2);
 
             if (this.currentReloadTime <= 0) {
 
-                Vector3 bulletDirection = Calculate.DirectionFromAngle(this.transform.eulerAngles + new Vector3(RND, RND2, 0));
+                Vector3 bulletDirection = Quaternion.Euler(this.transform.eulerAngles + new Vector3(rnd, rnd2, 0)) * Vector3.forward;
                 Vector3 position = this.transform.GetChild(0).position + bulletDirection * .2f;
 
                 GameObject bulletClone = Instantiate(bulletPrefab, position, this.transform.rotation) as GameObject;
