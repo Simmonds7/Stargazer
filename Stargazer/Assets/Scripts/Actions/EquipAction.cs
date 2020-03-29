@@ -17,12 +17,10 @@ public class EquipAction : MonoBehaviour {
 	public void OnEquip(Equipment item, Transform transform) {
         //Player special rule: if equip then turn invisible
         if (ownerEntity.gameObject.tag == "Player") {
-            foreach (Transform child in item.transform)
+            MeshRenderer[] renders = item.transform.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer r in renders)
             {
-                MeshRenderer render = child.GetComponent<MeshRenderer>();
-                if (render != null) {
-                    render.enabled = false;
-                }
+                r.enabled = false;
             }
         }
 
@@ -43,18 +41,18 @@ public class EquipAction : MonoBehaviour {
 	public void OnDrop(Equipment item) {
         //Player special rule: if drop then turn visible
         if (ownerEntity.gameObject.tag == "Player") {
-            foreach (Transform child in item.transform)
+            MeshRenderer[] renders = item.transform.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer r in renders)
             {
-                MeshRenderer render = child.GetComponent<MeshRenderer>();
-                if (render != null) {
-                    render.enabled = true;
-                }
+                r.enabled = true;
             }
         }
 
         Vector3 dropDirection = new Vector3(0, this.ownerEntity.direction.y, 0);
         item.transform.position = Calculate.PositionFromAngle(this.ownerEntity.position, dropDirection, this.droppingDistance);
         item.transform.gameObject.layer = LayerMask.NameToLayer("Item");
+
+        print(ownerEntity.position);
 
         Rigidbody body = item.GetComponent<Rigidbody>();
         body.isKinematic = false;

@@ -31,6 +31,7 @@ public class PlayerController : Entity {
             equipAction.OnEquip(weapon, playerView.transform);
         }
         Cursor.lockState = CursorLockMode.Locked;
+		position = transform.position;
 	}
 
 	void Update() {
