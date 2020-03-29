@@ -5,10 +5,10 @@ public class SpiderCannon : Equipment {
 	public GameObject bulletPrefab;
 	private float currentReloadTime = 0;
     private const float MAX_RELOAD_TIME = .1f;
-    private const float BULLET_SPEED = 12.0f;
+    private const float BULLET_SPEED = 20.0f;
     private const float BULLET_RANGE = 100.0f;
 
-	private const float ROTATE_SPEED = 400;
+	private const float ROTATE_SPEED = 1.5f; //Rotations per Second
 
 	private Transform mainBarrel;
 
@@ -24,7 +24,7 @@ public class SpiderCannon : Equipment {
 		if (this.currentAmmoCount > 0) {
 			if (this.currentReloadTime <= 0) {
 				for (int i = 0; i < 5; i++) {
-					Vector3 bulletDirection = Calculate.DirectionFromAngle(this.transform.eulerAngles);
+					Vector3 bulletDirection = transform.rotation * Vector3.forward;
 					Vector3 position = mainBarrel.GetChild(i).GetChild(0).position + bulletDirection * .2f;
 
 					GameObject bulletClone = Instantiate(bulletPrefab, position, this.transform.rotation) as GameObject;
@@ -39,7 +39,7 @@ public class SpiderCannon : Equipment {
 				}
 			}
 		}
-		mainBarrel.Rotate(Vector3.up, ROTATE_SPEED * Time.deltaTime);
+		mainBarrel.Rotate(Vector3.up, ROTATE_SPEED * 360 * Time.deltaTime);
     }
 
     void Update() {

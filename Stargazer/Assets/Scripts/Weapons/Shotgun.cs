@@ -10,8 +10,7 @@ public class Shotgun : Equipment {
     private const float MAX_RELOAD_TIME = 2.5f;
     private const float BULLET_SPEED = 65.0f;
     private const float BULLET_RANGE = 100.0f;
-    Vector3[] position = new Vector3[10];
-    GameObject[] bulletClone = new GameObject[10];
+    private const int BULLET_PER_SHOT = 10;
 
     void Start() {
         this.maxAmmoCount = 10;
@@ -23,14 +22,15 @@ public class Shotgun : Equipment {
             if (this.currentAmmoCount > 0) {
                 if (this.currentReloadTime <= 0) {
 
-                for (int i = 0; i < bulletClone.Length; i++) {
-                    int rnd1 = Random.Range(-5, 5);
+                for (int i = 0; i < BULLET_PER_SHOT; i++) {
+                    int rnd = Random.Range(-5, 5);
                     int rnd2 = Random.Range(-5, 5);
-                    Vector3 bulletDirection = Calculate.DirectionFromAngle(this.transform.eulerAngles + new Vector3(rnd1, rnd2, 0));
-                    position[i] = this.transform.GetChild(0).position + bulletDirection * (.1f * i);
-                    bulletClone[i] = Instantiate(bulletPrefab, position[i], this.transform.rotation) as GameObject;
-                    bulletClone[i].transform.localScale = new Vector3(.05f, .05f, .05f);
-                    Bullet bullet = bulletClone[i].GetComponent<Bullet>();
+                    Vector3 bulletDirection = Quaternion.Euler(this.transform.eulerAngles + new Vector3(rnd, rnd2, 0)) * Vector3.forward;
+
+                    Vector3 position = this.transform.GetChild(0).position + bulletDirection * .1f * i;
+                    GameObject bulletClone = Instantiate(bulletPrefab, position, this.transform.rotation);
+                    bulletClone.transform.localScale = new Vector3(.05f, .05f, .05f);
+                    Bullet bullet = bulletClone.GetComponent<Bullet>();
                     bullet.Init(bulletDirection, BULLET_SPEED, BULLET_RANGE);
                     bullet.damageValue = 5;
                 }

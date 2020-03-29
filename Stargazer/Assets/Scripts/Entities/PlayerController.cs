@@ -52,7 +52,7 @@ public class PlayerController : Entity {
 	void FixedUpdate() {
 		if (this.velocity != Vector3.zero) {
 			playerBody.MovePosition(playerBody.position + this.velocity * Time.deltaTime);
-			position = playerView.transform.position;
+			position = transform.position;
 		}
 	}
 
@@ -138,7 +138,7 @@ public class PlayerController : Entity {
 		playerView.transform.localRotation = Quaternion.Euler(yRotation, 0f, 0f);
 		transform.Rotate(Vector3.up * mouseX);	
 
-		this.direction = playerView.transform.eulerAngles;
+		this.direction = playerView.transform.rotation * Vector3.forward;
 	}
 
 	public override void Death() {

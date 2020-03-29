@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EquipAction : MonoBehaviour {
 	//Holding angle is in degrees
-	public float holdingAngle;
 	public float holdingDistance;
 	public float droppingDistance;
 
@@ -16,13 +15,13 @@ public class EquipAction : MonoBehaviour {
 
 	public void OnEquip(Equipment item, Transform transform) {
         //Player special rule: if equip then turn invisible
-        if (ownerEntity.gameObject.tag == "Player") {
-            MeshRenderer[] renders = item.transform.GetComponentsInChildren<MeshRenderer>();
-            foreach (MeshRenderer r in renders)
-            {
-                r.enabled = false;
-            }
-        }
+        // if (ownerEntity.gameObject.tag == "Player") {
+        //     MeshRenderer[] renders = item.transform.GetComponentsInChildren<MeshRenderer>();
+        //     foreach (MeshRenderer r in renders)
+        //     {
+        //         r.enabled = false;
+        //     }
+        // }
 
         item.ownerEntity = ownerEntity;
         item.transform.parent = transform;
@@ -33,8 +32,9 @@ public class EquipAction : MonoBehaviour {
         body.useGravity = false;
         body.detectCollisions = false;
 
-        item.transform.localPosition = Calculate.PositionFromAngle(Vector3.zero, this.transform.forward + Vector3.right * this.holdingAngle, this.holdingDistance);
-        item.transform.eulerAngles = this.ownerEntity.direction;
+        item.transform.localPosition = Vector3.forward * holdingDistance;
+
+        item.transform.eulerAngles = transform.eulerAngles;
         item.transform.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 	}
 
@@ -48,16 +48,14 @@ public class EquipAction : MonoBehaviour {
             }
         }
 
-        Vector3 dropDirection = new Vector3(0, this.ownerEntity.direction.y, 0);
-        item.transform.position = Calculate.PositionFromAngle(this.ownerEntity.position, dropDirection, this.droppingDistance);
         item.transform.gameObject.layer = LayerMask.NameToLayer("Item");
-
-        print(ownerEntity.position);
 
         Rigidbody body = item.GetComponent<Rigidbody>();
         body.isKinematic = false;
         body.useGravity = true;
         body.detectCollisions = true;
+
+        body.AddForce(item.transform.rotation * Vector3.forward * 4, ForceMode.Impulse);
 
         item.ownerEntity = null;
         item.transform.parent = null;
