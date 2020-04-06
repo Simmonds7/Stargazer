@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 114962892816754482}
   m_Layer: 0
   m_Name: Rifle
-  m_TagString: Equipment
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490747722129716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 13.331876, y: 1.48, z: -5.176262}
   m_LocalScale: {x: 0.10231452, y: 0.2995808, z: 0.26166067}
   m_Children:
   - {fileID: 4840474715378218}
@@ -978,9 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5757a69eacbf004781046cf32a7a896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerEntity: {fileID: 0}
-  bulletPrefab: {fileID: 1200003978224132, guid: 0c4c818132bc73040ac5d0a7c0469821,
-    type: 2}
+  itemData: {fileID: 11400000, guid: 7a140a0d4f75f224fa7ff9ece6c8d1f0, type: 2}
 --- !u!136 &136031767386936390
 CapsuleCollider:
   m_ObjectHideFlags: 1

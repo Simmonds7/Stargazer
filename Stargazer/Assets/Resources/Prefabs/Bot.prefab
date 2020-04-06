@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975113638476004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9320326, y: 1.83, z: -8.65}
+  m_LocalPosition: {x: 17.8, y: 4.8, z: -32.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4446949452904208}
@@ -390,7 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e5606c0a9ea43850fed1623e50e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdingAngle: 0
   holdingDistance: 1
   droppingDistance: 0
 --- !u!114 &114421463983364282
@@ -426,7 +425,7 @@ MonoBehaviour:
   deathExplosion: {fileID: 1408889015858618, guid: 508c5e26be07e244aafc93f8d7c83adc,
     type: 2}
   targetRef: {fileID: 0}
-  detectionRange: 60
+  detectionRange: 200
   shootingRange: 80
 --- !u!136 &136076217612727084
 CapsuleCollider:

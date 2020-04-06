@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4344318af4c105a49b5b65e11039a63c
+timeCreated: 1585946105
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - itemPrefab: {instanceID: 0}
+  - ownerEntity: {instanceID: 0}
+  - ammoType: {fileID: 1200003978224132, guid: 0c4c818132bc73040ac5d0a7c0469821, type: 2}
+  - cannonBallType: {fileID: 1224410915434162, guid: 9d8b02e1a734cac4989021dbc67bd73d,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
