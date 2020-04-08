@@ -24,6 +24,27 @@ public class EquipAction : ItemAction
                     ownerEntity.equipments[EquipmentType.Weapon] = item;
                     HoldItem(item, transform);
                 }
+                else if (data.equipmentType == EquipmentType.Footwear)
+                {
+                    ownerEntity.equipments[EquipmentType.Footwear] = item;
+                    item.transform.parent = transform;
+                    item.transform.localPosition = Vector3.zero;
+
+                    MeshRenderer[] renders = item.GetComponentsInChildren<MeshRenderer>();
+
+                    foreach (MeshRenderer r in renders)
+                    {
+                        r.enabled = false;
+                    }
+
+                    Rigidbody rb = item.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                        rb.detectCollisions = false;
+                    }
+                }
 
                 item.OnEquipped();
             }
@@ -85,6 +106,13 @@ public class EquipAction : ItemAction
                 if (ownerEntity.currentHoldingItem == item) ownerEntity.currentHoldingItem = null;
 
                 item.transform.gameObject.layer = LayerMask.NameToLayer("Item");
+
+                MeshRenderer[] renders = item.GetComponentsInChildren<MeshRenderer>();
+
+                foreach (MeshRenderer r in renders)
+                {
+                    r.enabled = true;
+                }
 
                 Rigidbody rb = item.GetComponent<Rigidbody>();
                 if (rb != null)

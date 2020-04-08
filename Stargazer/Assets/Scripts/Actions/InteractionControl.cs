@@ -87,7 +87,10 @@ public class InteractionControl : MonoBehaviour
 
     void Update()
     {
-        WorldInteraction();
-        InventoryControl();
+        if (!PauseMenu.IsGamePaused())
+        {
+            WorldInteraction();
+            InventoryControl();
+        }
     }
 }

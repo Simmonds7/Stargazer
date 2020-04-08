@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -267,6 +267,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 696c50bce5b8d494a9b9c3162fffbfe7, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &91243176 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114482375040219778, guid: 696c50bce5b8d494a9b9c3162fffbfe7,
+    type: 2}
+  m_PrefabInternal: {fileID: 91243175}
+  m_Script: {fileID: 11500000, guid: f0bb0cb5abed367439a339810a8d705e, type: 3}
 --- !u!1001 &94307099
 Prefab:
   m_ObjectHideFlags: 0
@@ -446,12 +452,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 91243175}
   m_Script: {fileID: 11500000, guid: 9b4ad36154d55b34b981010e639e170a, type: 3}
---- !u!114 &197059446 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114071696527710810, guid: 696c50bce5b8d494a9b9c3162fffbfe7,
-    type: 2}
-  m_PrefabInternal: {fileID: 91243175}
-  m_Script: {fileID: 11500000, guid: f0bb0cb5abed367439a339810a8d705e, type: 3}
 --- !u!4 &197059451 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4800034696292444, guid: 696c50bce5b8d494a9b9c3162fffbfe7,
@@ -1542,12 +1542,12 @@ Prefab:
     - target: {fileID: 224441678510791934, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 289.5
+      value: 288.5
       objectReference: {fileID: 0}
     - target: {fileID: 224441678510791934, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 370.5
+      value: 298.5
       objectReference: {fileID: 0}
     - target: {fileID: 224441678510791934, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
@@ -1633,7 +1633,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 197059446}
+      objectReference: {fileID: 91243176}
     - target: {fileID: 114313495088605866, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
       propertyPath: playerHealth

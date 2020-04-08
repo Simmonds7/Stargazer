@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -378,12 +378,12 @@ Prefab:
     - target: {fileID: 224441678510791934, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 280
+      value: 288.5
       objectReference: {fileID: 0}
     - target: {fileID: 224441678510791934, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 338
+      value: 298.5
       objectReference: {fileID: 0}
     - target: {fileID: 224441678510791934, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
@@ -469,7 +469,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1627778918}
+      objectReference: {fileID: 2130250939}
     - target: {fileID: 114313495088605866, guid: dbbba71abc049b04ba73e23661614cf2,
         type: 2}
       propertyPath: playerHealth
@@ -938,12 +938,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2130250938}
   m_Script: {fileID: 11500000, guid: 9b4ad36154d55b34b981010e639e170a, type: 3}
---- !u!114 &1627778918 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114071696527710810, guid: 696c50bce5b8d494a9b9c3162fffbfe7,
-    type: 2}
-  m_PrefabInternal: {fileID: 2130250938}
-  m_Script: {fileID: 11500000, guid: f0bb0cb5abed367439a339810a8d705e, type: 3}
 --- !u!4 &1640542975 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4324615894758382, guid: 6f63e6f5147f0eb47bc2bbbbb6dbb3d5,
@@ -1392,3 +1386,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 696c50bce5b8d494a9b9c3162fffbfe7, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2130250939 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114482375040219778, guid: 696c50bce5b8d494a9b9c3162fffbfe7,
+    type: 2}
+  m_PrefabInternal: {fileID: 2130250938}
+  m_Script: {fileID: 11500000, guid: f0bb0cb5abed367439a339810a8d705e, type: 3}

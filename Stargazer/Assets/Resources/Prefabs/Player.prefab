@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 8
-  maxSpeed: 5
+  maxSpeed: 7
   playerView: {fileID: 20262539963679808}
   weaponPrefab: {fileID: 1522153295813046, guid: 3d775168abb5cca4491c8f71ef2db1bc,
     type: 2}
@@ -232,8 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b52e5606c0a9ea43850fed1623e50e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdingDistance: 1
-  holdingAngle: 25
+  defaultHoldingDistance: 1
+  defaultHoldingAngle: 25
 --- !u!114 &114767512529568554
 MonoBehaviour:
   m_ObjectHideFlags: 1
