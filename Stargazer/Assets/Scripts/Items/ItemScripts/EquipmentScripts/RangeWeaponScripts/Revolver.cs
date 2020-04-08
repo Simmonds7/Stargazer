@@ -41,9 +41,13 @@ public class Revolver : RangeWeapon
 
     void Update()
     {
-        if (!(data.currentReloadTime <= 0))
+        if (data.currentReloadTime > 0)
         {
             data.currentReloadTime -= Time.deltaTime;
+            if (data.currentReloadTime < 0)
+            {
+                data.currentReloadTime = 0;
+            }
         }
     }
 }

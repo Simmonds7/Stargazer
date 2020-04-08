@@ -22,10 +22,10 @@ public class MovementControl : MonoBehaviour
         Vector3 input = new Vector3(-Input.GetAxisRaw("Horizontal"), 0.0f, Input.GetAxisRaw("Vertical"));
         if (input != Vector3.zero)
         {
-            float inputDirection = Mathf.Atan2(input.normalized.z, input.normalized.x);
+            float inputRadians = Mathf.Atan2(input.normalized.z, input.normalized.x);
             float facingDirection = Mathf.Deg2Rad * orientation.transform.eulerAngles.y;
-            float moveDirection = inputDirection - (Mathf.PI / 2) + facingDirection;
-            Vector3 direction = new Vector2(Mathf.Sin(moveDirection), Mathf.Cos(moveDirection));
+            float moveDirection = inputRadians - (Mathf.PI / 2) + facingDirection;
+            Vector2 direction = new Vector2(Mathf.Sin(moveDirection), Mathf.Cos(moveDirection));
             ownerEntity.velocity = direction * ownerEntity.currentSpeed;
         }
         else

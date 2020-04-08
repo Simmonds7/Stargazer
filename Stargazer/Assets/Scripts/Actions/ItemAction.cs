@@ -3,8 +3,8 @@ using UnityEngine;
 public class ItemAction : MonoBehaviour
 {
     //Holding angle is in degrees
-    public float holdingDistance;
-    public float holdingAngle;
+    public float defaultHoldingDistance;
+    public float defaultHoldingAngle;
     protected Entity ownerEntity;
 
     void Start()
@@ -28,6 +28,11 @@ public class ItemAction : MonoBehaviour
     }
 
     public void HoldItem(Item item, Transform transform)
+    {
+        HoldItem(item, transform, defaultHoldingDistance, defaultHoldingAngle);
+    }
+
+    public void HoldItem(Item item, Transform transform, float holdingDistance, float holdingAngle)
     {
         if (item.itemData.ownerEntity == null)
         {
@@ -61,8 +66,8 @@ public class ItemAction : MonoBehaviour
             ownerEntity.currentHoldingItem = item;
 
             item.transform.parent = transform;
-            item.transform.localPosition = Quaternion.Euler(Vector3.right * this.holdingAngle) * Vector3.forward * holdingDistance;
-
+            item.transform.localPosition = Quaternion.Euler(Vector3.right * holdingAngle) * Vector3.forward * holdingDistance;
+            print(item.transform.localPosition);
             item.transform.eulerAngles = transform.eulerAngles;
             item.transform.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
